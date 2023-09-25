@@ -7,6 +7,11 @@ const Donation = () => {
     const [donation, setDonation] = useState([])
     const [noData,setNoData]= useState(false)
     const [isShow , setShow] = useState(false)
+//    const  setShow = ()=>{
+//     if(donation.length>4){
+        
+//     }
+//    }
     
 
     // localStorage 
@@ -37,8 +42,8 @@ const Donation = () => {
                     }
                 </div>
             }
-            <div className="flex justify-center items-center">
-            <button className="btn btn-secondary mt-4" onClick={()=> setShow(!isShow)}>see more</button>
+            <div className="flex justify-center items-center my-12  ">
+            <button style={{backgroundColor: "pink", padding:'8px', fontSize:'24px' , fontWeight:'700', borderRadius : '10px'}} className={isShow ? 'hidden' : ""} onClick={()=> setShow(!isShow)}>See More</button>
             </div>
         </div>
     );
