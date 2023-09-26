@@ -1,9 +1,0 @@
-
-.background {
-    background-image: url('/Food.png');
-    background-size: cover; 
-    background-repeat: no-repeat;
-    opacity: .5;
-    /* position: absolute;  */
-    z-index: -1;
-}

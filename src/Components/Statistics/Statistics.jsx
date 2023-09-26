@@ -1,59 +1,40 @@
-import { useEffect, useState } from "react";
-import { PieChart } from "react-minimal-pie-chart";
-import { useLoaderData } from "react-router-dom";
-import DonationDetails from "../DonationDetails/DonationDetails";
 
+import { PieChart } from "react-minimal-pie-chart";
+
+import { useEffect, useState } from "react";
+import { useLoaderData } from "react-router-dom";
 
 const Statistics = () => {
   const data = useLoaderData();
-  console.log(data);
-  const [total, setTotal] = useState([]);
-  useEffect(() => {
-    // in total
-    const totalDonate = data.reduce(
-      (previous, current) => previous + current.donate,
-      0
-    );
-    setTotal(totalDonate);
-  }, [data]);
-  console.log(total);
-  const inPercent = total/100
-  console.log(inPercent);
 
   // local storage total
   const [donation, setDonation] = useState([]);
-  const [totalDonate, setTotalDonate] = useState(0);
-
 
   useEffect(() => {
     const donateItems = JSON.parse(localStorage.getItem("donate"));
     if (donateItems) {
       setDonation(donateItems);
-      console.log(donateItems);
-      
-      const totalDonate = donateItems.reduce(
-        (previous, current) => previous + current.donate,
-        0
-      );
-      setTotalDonate(totalDonate);
     }
   }, []);
-console.log(totalDonate);
+  const divide = donation.length / data.length;
+  const percentLocal = divide * 100;
+  const percentTotal = 100 - percentLocal;
+
   return (
     <div>
+      <h2 className="mt-24 font-bold text-center text-[#C13C37]">Total Donate : {percentTotal}%</h2>
+      <h2 className=" mb-12  font-bold text-center text-[#E38627]">My Donate : {percentLocal}%</h2>
+    <PieChart
+    
+      className="max-w-xs mx-auto h-[300px] "
+      data={[
+        { title: "Total", value: percentLocal, color: "#E38627" },
+        { title: "localTotal", value: percentTotal, color: "#C13C37" },
+      ]}
+      label={({ dataEntry }) => `${Math.round(dataEntry.percentage)} %`}
+    >
       
-      <div className="pl-7">
-      <h1>total donate : {total }</h1>
-      <h1>total donate from local storage : {totalDonate}</h1>
-      </div>
-      <PieChart
-        className="max-w-xl mx-auto"
-        data={[
-          { title: "One", value:  totalDonate , color: "#E38627" },
-          { title: "Two", value:  total , color: "#C13C37" },
-        ]}
-      />
-      ;
+    </PieChart>
     </div>
   );
 };

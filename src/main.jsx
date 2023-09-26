@@ -11,7 +11,9 @@ import Layout from './Components/Layout/Layout';
 import CardDetails from './Components/CardDetails/CardDetails';
 import ViewDetails from './Components/View Details/ViewDetails';
 import Statistics from './Components/Statistics/Statistics';
-// import PieChart from './Components/PieChart/PieChart';
+import ErrorPage from './Components/ErrorPage/ErrorPage';
+
+
 
 
 
@@ -19,11 +21,13 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Layout></Layout>,
+    errorElement: <ErrorPage></ErrorPage>,
     children : [
       {
         path : "/",
         element : <Home></Home>,
-        loader : () => fetch('donation.json')
+        loader : () => fetch('donation.json'),
+        errorElement: <ErrorPage></ErrorPage>,
       },
       {
         path : "/details/:id",
@@ -37,12 +41,14 @@ const router = createBrowserRouter([
       },
       {
         path : "/donation",
-        element : <Donation></Donation>
+        element : <Donation></Donation>,
+        errorElement: <ErrorPage></ErrorPage>,
       },
       {
         path : "/statistics",
         element : <Statistics></Statistics>,
         loader : () => fetch(`/donation.json`),
+        errorElement: <ErrorPage></ErrorPage>,
 
       },
     ]
