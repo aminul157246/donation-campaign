@@ -43,7 +43,7 @@ const Donation = () => {
                       <DonationDetails card={donate} key={donate.id}></DonationDetails>
                     ))}
                 {donation.length > 4 && !showAll && (
-                  <button onClick={toggleShowAll}>Show All</button>
+                  <button className="btn btn-accent" onClick={toggleShowAll}>Show All</button>
                 )}
               </div>
             }

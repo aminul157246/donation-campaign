@@ -12,8 +12,8 @@ const DonationDetails = ({ card }) => {
         </figure>
         </div>
         <div className="mt-4">
-          <h2 style={{backgroundColor:title_background}} className="text-xl font-semibold text-center">{card.title}</h2>
-          <p className="text-black mt-3 text-2xl font-bold"> {card.category_name}</p>
+          <h2 style={{backgroundColor:title_background,color: text_color}} className="text-xl font-semibold text-center">{card.title}</h2>
+          <p style={{color: text_color}} className=" mt-3 text-2xl font-bold"> {card.category_name}</p>
           <p style={{color:text_color, fontWeight:'700'}}>${donate}</p>
           <Link to={`/viewDetails/${id}`}>
             <button style={{backgroundColor:text_color, border: 'none'}} className=" mt-4 btn btn-primary">View details</button>
