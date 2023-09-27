@@ -26,18 +26,18 @@ const router = createBrowserRouter([
       {
         path : "/",
         element : <Home></Home>,
-        loader : () => fetch('donation.json'),
+        loader : () => fetch('/donationData.json'),
         errorElement: <ErrorPage></ErrorPage>,
       },
       {
         path : "/details/:id",
         element : <CardDetails></CardDetails>,
-        loader : () => fetch(`/donation.json`),
+        loader : () => fetch(`/donationData.json`),
       },
       {
         path : "/viewDetails/:id",
         element : <ViewDetails></ViewDetails>,
-        loader : () => fetch(`/donation.json`),
+        loader : () => fetch(`/donationData.json`),
       },
       {
         path : "/donation",
@@ -47,7 +47,7 @@ const router = createBrowserRouter([
       {
         path : "/statistics",
         element : <Statistics></Statistics>,
-        loader : () => fetch(`/donation.json`),
+        loader : () => fetch(`/donationData.json`),
         errorElement: <ErrorPage></ErrorPage>,
 
       },
