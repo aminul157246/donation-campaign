@@ -1,3 +1,10 @@
+## live link : https://receptive-creator.surge.sh/
+
+> ## Technologies I used in this website : 
+
+ 
+ [![My Skills](https://skillicons.dev/icons?i=html,js,firebase,react)](https://skillicons.dev)
+
 
 # 1.SPAs(single-page application) offer a seamless and dynamic user experience 
 
